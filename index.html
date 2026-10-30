@@ -201,7 +201,7 @@ const CONFIG = {
   BANK_BIN:     '970422',
   ACCOUNT_NO:   '0853261605',
   ACCOUNT_NAME: 'DANG TOAN VU',
-  QR_BASE:      'https://api.vietqr.io/image/mbbank-0853261605-compact.jpg',
+  QR_BASE:      'https://img.vietqr.io/image/mbbank-0853261605-compact.jpg',
   AMOUNT:       50000,               // GIÁ GỐC – chỉ cần sửa số này, mọi nơi (chữ, QR, giảm giá) tự cập nhật
   MIN_AMOUNT:   2000,                // số tiền tối thiểu sau giảm (ngân hàng thường không nhận 0đ)
   MEMO_PREFIX:  'LOCKET',
@@ -209,12 +209,12 @@ const CONFIG = {
 
   // DEMO_MODE = true: có nút giả lập thanh toán (CHỈ để xem thử giao diện)
   // DEMO_MODE = false: gọi CHECK_URL mỗi 4 giây
-  DEMO_MODE: true,
+  DEMO_MODE: false,
 
   // API backend của bạn, nhận ?code=LOCKETXXXX&amount=50000
   // và trả JSON: { "paid": true, "link": "https://..." }
   // Backend nhận webhook từ SePay / Casso, đối chiếu số tiền + nội dung.
-  CHECK_URL: '/api/check-payment',
+  CHECK_URL: 'https://api.sweep.id.vn/api/check-payment',
   POLL_MS: 4000,
 
   // Mã giảm giá. type: 'percent' (giảm %) hoặc 'fixed' (giảm số tiền, đơn vị đồng).
@@ -241,7 +241,7 @@ const CONFIG = {
 
 // Link cài đặt cố định (mã hóa base64 để không lộ ngay trong HTML, chỉ gắn vào nút sau khi xác nhận).
 // Lưu ý: đây chỉ là che mắt. Muốn chống lách thật sự, hãy trả link từ backend (xem hướng dẫn).
-const INSTALL_LINK_B64 = btoa('https://locket-dvu.s.gy/sweep207');
+const INSTALL_LINK_B64 = ''; // link thật nằm trong Worker (biến INSTALL_LINK), không để ở đây
 
 /* =====================================================================
    2) DANH SÁCH TÍNH NĂNG
